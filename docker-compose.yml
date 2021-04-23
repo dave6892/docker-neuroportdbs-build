@@ -13,9 +13,8 @@ services:
     build: .
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ~/Documents/Data/STN_DBS_Data/STN_Patient21:/tmp/data
-      - ./ImportNS5FeaturesGUI.py:/app/ImportNS5FeaturesGUI.py
-      - ./FeaturesGUI.py:/app/FeaturesGUI.py
+      - ~/Downloads/Data/ClinicalDBS:/tmp/data
+      - .:/app
     ports: 
       - 6666:80
     depends_on:

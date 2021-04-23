@@ -48,3 +48,4 @@ git+https://${GITHUB_TOKEN}@github.com/SachsLab/NeuroportDBS.git
 #Set working directory
 WORKDIR /app
 ADD my_serf.cnf /home/qtuser
+# ENTRYPOINT [ "/bin/bash", "entrypoint.sh"]
