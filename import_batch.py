@@ -34,28 +34,24 @@ if __name__ == "__main__":
 
             for f in flist:
                 if f.endswith('.ns5'):
-                    print(f)
+
                     matches = id_re.match(f)
                     proc_id = matches.group('Id')
                     ch = matches.group('Proc')
 
-                    # date, proc_id, ch = os.path.splitext(f)[0].split('-')
-
                     if proc_id not in subj[case]:
                         subj[case][proc_id] = []
-                    #     subj[case] += [proc_id]
                     subj[case][proc_id] += [f]
 
     for case, procs in subj.items():
-        if int(case) >= 30:
-            for p, flist in procs.items():
-                for fname in flist:
-                    fn, ext = os.path.splitext(fname)
-                    ch = fn.split('-')[-1]
-                    sub = f'{case}-{p}'.format(case, p)
-                    try:
-                        NS5OfflinePlayback(sub, ch, os.path.join(PATH, case, fn))
-                        print(sub, ch, os.path.join(PATH, case, fn))
-                    except:
-                        print(f"{sub}, {ch}", " ran into an error!")
+        for p, flist in procs.items():
+            for fname in flist:
+                fn, ext = os.path.splitext(fname)
+                ch = fn.split('-')[-1]
+                sub = f'{case}-{p}'.format(case, p)
+                try:
+                    NS5OfflinePlayback(sub, ch, os.path.join(PATH, case, fn))
+                    print(sub, ch, os.path.join(PATH, case, fn))
+                except:
+                    print(f"{sub}, {ch}", " ran into an error!")
 
