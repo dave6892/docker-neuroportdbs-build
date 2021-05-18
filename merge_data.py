@@ -1,8 +1,8 @@
 import os
 import shutil
 
-PATH = '/Users/dave/Downloads/ClinicalDBS'
-TARGET = os.path.join(PATH, 'all')
+PATH = 'SPECIFY_YOUR_DATA_PATH'
+TARGET = 'SPECIFY_YOUR_TARGET_PATH'
 
 def move_file(src, target):
     print(f'move: {src} -> {target}')
