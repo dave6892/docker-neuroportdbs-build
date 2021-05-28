@@ -22,7 +22,7 @@ Move the data (\*.ns5 and associated files) into the direcory `./data`.
     $ serf-makemigrations; serf-migrate
 
 #### Import Data into the Database
-    $ python import_ns5.py
+    $ python import_batch.py
     
 #### Run GUI
     $ python features_gui.py
