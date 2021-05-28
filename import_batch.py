@@ -49,9 +49,11 @@ if __name__ == "__main__":
                 fn, ext = os.path.splitext(fname)
                 ch = fn.split('-')[-1]
                 sub = f'{case}-{p}'.format(case, p)
-                try:
-                    NS5OfflinePlayback(sub, ch, os.path.join(PATH, case, fn))
-                    print(sub, ch, os.path.join(PATH, case, fn))
-                except:
-                    print(f"{sub}, {ch}", " ran into an error!")
+                print(os.path.exists(os.path.join(PATH, case, fn+'.ns5')))
+                NS5OfflinePlayback(sub, ch, os.path.join(PATH, case, fn))
+#                try:
+#                    NS5OfflinePlayback(sub, ch, os.path.join(PATH, case, fn))
+#                    print(sub, ch, os.path.join(PATH, case, fn))
+#                except:
+#                    print(f"{sub}, {ch}", " ran into an error!")
 

@@ -1,8 +1,8 @@
 import os
 import shutil
+import argparse
 
-PATH = 'SPECIFY_YOUR_DATA_PATH'
-TARGET = 'SPECIFY_YOUR_TARGET_PATH'
+DOWNLOAD_DIR = os.path.join(os.path.expanduser('~'), 'Downloads')
 
 def move_file(src, target):
     print(f'move: {src} -> {target}')
@@ -23,6 +23,18 @@ def merge_files(src, target):
     return src, duplicate_files
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description="Merging files from the Google Chrome data download")
+    parser.add_argument("--data_dir", type=str, default=os.path.join(DOWNLOAD_DIR),
+        help='data directory')
+    parser.add_argument("--output", type=str, help='output directory')
+    args = parser.parse_args()
+
+    PATH = args.data_dir
+    TARGET = args.output
+
+    if TARGET is None:
+        raise ValueError("Specify an output.")
 
     for p in [p for p in os.listdir(PATH) if p.startswith('Clinical DBS')]:
         path_ = os.path.join(PATH, p)

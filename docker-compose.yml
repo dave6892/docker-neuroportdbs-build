@@ -13,7 +13,7 @@ services:
     build: .
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ~/Downloads/Data/ClinicalDBS:/tmp/data
+      - ~/Developer/Data/ClinicalDBS/raw:/tmp/data
       - .:/app
     ports: 
       - 6666:80

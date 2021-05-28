@@ -7,6 +7,9 @@ RUN adduser --quiet --disabled-password qtuser && usermod -a -G audio qtuser
 RUN mkdir /tmp/runtime-qtuser && chown 1000 /tmp/runtime-qtuser
 WORKDIR /app
 
+# This fix: libGL error: No matching fbConfigs or visuals found
+ENV LIBGL_ALWAYS_INDIRECT=1
+
 # Install dependencies
 RUN apt-get update \
 && apt-get install -y git \
@@ -42,8 +45,8 @@ pyqtgraph \
 git+https://github.com/NeuralEnsemble/python-neo.git \
 git+https://github.com/SachsLab/pytf.git \
 git+https://github.com/SachsLab/mspacman.git \
-git+https://github.com/SachsLab/cerebuswrapper.git \
-git+https://${GITHUB_TOKEN}@github.com/SachsLab/NeuroportDBS.git
+git+https://github.com/SachsLab/cerebuswrapper.git 
+#git+https://${GITHUB_TOKEN}@github.com/SachsLab/NeuroportDBS.git
 
 #Set working directory
 WORKDIR /app
