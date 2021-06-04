@@ -1,6 +1,6 @@
 FROM dave6892/serf:latest
 ENV DEBIAN_FRONTEND=noninteractive
-ENV GITHUB_TOKEN=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
+#ENV GITHUB_TOKEN=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
 
 # Add user
 RUN adduser --quiet --disabled-password qtuser && usermod -a -G audio qtuser
@@ -42,13 +42,13 @@ regex \
 pyqt5 \
 qtpy \
 pyqtgraph \
+tqdm \
 git+https://github.com/NeuralEnsemble/python-neo.git \
 git+https://github.com/SachsLab/pytf.git \
 git+https://github.com/SachsLab/mspacman.git \
-git+https://github.com/SachsLab/cerebuswrapper.git 
+git+https://github.com/SachsLab/cerebuswrapper.git
 #git+https://${GITHUB_TOKEN}@github.com/SachsLab/NeuroportDBS.git
 
 #Set working directory
 WORKDIR /app
 ADD my_serf.cnf /home/qtuser
-# ENTRYPOINT [ "/bin/bash", "entrypoint.sh"]
