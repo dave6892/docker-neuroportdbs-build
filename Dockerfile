@@ -19,7 +19,9 @@ python-is-python3 \
 build-essential \
 default-libmysqlclient-dev \ 
 cmake \
-qt5-default 
+qt5-default \
+libxcb-xinerama0 \
+libqt5x11extras5
 
 # Install CereLink
 RUN pip3 install Cython numpy \
